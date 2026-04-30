@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, siteMeta } from "@/data/portfolio";
 
@@ -22,6 +22,19 @@ export function Header() {
     };
   }, [open]);
 
+  const handleNavClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith("#")) return;
+    event.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", href);
+    setOpen(false);
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-[background,backdrop-filter,border-color] duration-300 ${
@@ -34,6 +47,7 @@ export function Header() {
         <a
           href="#top"
           className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-white"
+          onClick={(e) => handleNavClick(e, "#top")}
         >
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-cyan/30 to-accent-violet/30 text-xs font-bold text-accent-cyan ring-1 ring-white/10 transition group-hover:ring-accent-cyan/40">
             AWI
@@ -47,6 +61,7 @@ export function Header() {
               key={l.href}
               href={l.href}
               className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition hover:bg-white/5 hover:text-white"
+              onClick={(e) => handleNavClick(e, l.href)}
             >
               {l.label}
             </a>
@@ -101,7 +116,7 @@ export function Header() {
                   key={l.href}
                   href={l.href}
                   className="rounded-lg px-3 py-3 text-sm text-zinc-300 hover:bg-white/5 hover:text-white"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleNavClick(e, l.href)}
                 >
                   {l.label}
                 </a>

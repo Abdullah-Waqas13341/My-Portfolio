@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { hero, siteMeta } from "@/data/portfolio";
+import profileImage from "../../Abdullah.jpg";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -12,7 +14,8 @@ export function Hero() {
       className="relative flex min-h-[92vh] flex-col justify-center px-5 pb-24 pt-28 sm:px-6 md:min-h-[88vh]"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto w-full max-w-5xl">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
         <motion.p
           className="mb-6 inline-flex items-center gap-2 text-sm text-zinc-500"
           initial={reduce ? false : { opacity: 0, y: 12 }}
@@ -83,6 +86,31 @@ export function Hero() {
           >
             LinkedIn
           </a>
+        </motion.div>
+        </div>
+
+        <motion.div
+          className="relative mx-auto w-full max-w-sm"
+          initial={reduce ? false : { opacity: 0, y: 20, scale: 0.98 }}
+          animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="gradient-border relative overflow-hidden rounded-3xl bg-surface-raised/60 p-3 backdrop-blur-sm">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+              <Image
+                src={profileImage}
+                alt={`${siteMeta.name} portrait`}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 80vw, 28rem"
+              />
+            </div>
+          </div>
+          <div
+            className="pointer-events-none absolute -bottom-8 -right-8 h-40 w-40 rounded-full bg-accent-cyan/15 blur-3xl"
+            aria-hidden
+          />
         </motion.div>
       </div>
 

@@ -1,0 +1,13 @@
+Current default image is:
+
+profile.svg
+
+To use your real photo:
+
+1) Add your image file here as profile.jpg
+2) In src/data/portfolio.ts, set hero.imagePath to "/profile.jpg"
+
+Recommended:
+- Portrait image
+- 4:5 ratio (e.g., 1200x1500)
+- Good lighting, centered subject

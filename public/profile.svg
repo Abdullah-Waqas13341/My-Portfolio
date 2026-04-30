@@ -1,0 +1,9 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1500" fill="#0B0B12"/>
+  <circle cx="600" cy="620" r="280" fill="#151524"/>
+  <circle cx="600" cy="520" r="120" fill="#2A2A3D"/>
+  <rect x="330" y="700" width="540" height="360" rx="180" fill="#2A2A3D"/>
+  <circle cx="280" cy="220" r="180" fill="#22D3EE" fill-opacity="0.15"/>
+  <circle cx="980" cy="1300" r="220" fill="#A78BFA" fill-opacity="0.18"/>
+  <text x="600" y="1320" text-anchor="middle" fill="#9CA3AF" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="48">Replace with /public/profile.jpg</text>
+</svg>
